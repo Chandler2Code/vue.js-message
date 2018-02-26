@@ -1,0 +1,37 @@
+{
+  "message": [
+      {
+      "openid": "1312645",
+      "orderid": "46465454",
+      "name": "Chandler",
+      "headline": "代取快递",
+      "content": "代取校园周边各大快递，送至寝室",
+      "remark": "只服务于15公寓的妹子",
+      "creatertiem":"2018年3月23日",
+      "class":"服务",
+      "headImg":"http://xxx.com"
+      },
+      {
+        "openid": "1312645",
+        "orderid": "46465454",
+        "name": "Chandler",
+        "headline": "代充水卡",
+        "content": "需要充水卡的请找我",
+        "remark": "只服务于13公寓的妹子",
+        "creatertiem":"2018年3月24日",
+        "class":"服务",
+        "headImg":"http://xxx.com"
+      },
+      {
+        "openid": "1312645",
+        "orderid": "46465454",
+        "name": "Chandler",
+        "headline": "寄快递",
+        "content": "寄快递快递，省内1kg以下8元，续重1kg加4元，省外1kg以下10元，续重1kg加5元",
+        "remark": "服务于全校同学",
+        "creatertiem":"2018年4月23日",
+        "class":"服务",
+        "headImg":"http://xxx.com"
+      }
+  ]
+}
