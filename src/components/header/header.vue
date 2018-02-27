@@ -13,18 +13,6 @@ data(){
     msg: "诚中意服务"
   }
 },
-props:{
-  // seller:{
-  //   type:Object
-  // }
-},
-
-//**** 附加*/
-methods:{
-  onClickMe(){
-    // console.log(this.seller)
-  }
-}
 }
 </script>
 
@@ -33,7 +21,6 @@ methods:{
     position: relative;
     width: 100%;
     height: 134px;
-    /* line-height: 134px; */
     background: firebrick;
 }
 .header-tab{

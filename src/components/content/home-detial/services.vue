@@ -1,21 +1,34 @@
 <template>
 <div>
-  <ul>
-  <li v-for="item in services" v-if="item.messageType ==='0'">
-   <div id="content-home-detail-service" v-on:click="createOrder(item.messageId)">
-        <div class="services-header">
-          <img src="./3.png" height="30" width="30" alt=""/>
-            <p>{{item.name}}</p>
-            <p>发布于  {{item.createTime| formatDate}}</p>
-        </div>
-        <div class="services-bottom">
-            <p>{{item.title}}：{{item.content}}</p>
-            <p>备注：{{item.remark}}</p>
-        </div>
-    </div>
-   </li>
-  </ul>
-  <router-view></router-view>
+  <div>
+    <ul>
+        <li v-for="item in services">
+          <div class="services">
+            <div class="services-title">
+              <div>
+                <img src="./3.png" height="36" width="36" alt="">
+              </div>
+              <div class="services-title-name">
+              <p>{{item.name}} 发布于:{{item.createTime | formatDate}}</p>
+              </div>
+            </div>
+            <div class="services-content">
+              <p>标题：{{item.title}}</p>
+              <p>内容：{{item.content}}</p>
+              <p>备注：{{item.remark}}</p>
+            </div>
+            <div class="services-button">
+              <router-link :to="{name:'order',params:{title:item.title,remark:item.remark,
+              content:item.content,phone:item.phone,messageId:item.messageId}}">
+               <el-button type="success" size="mini" round>找Ta帮忙</el-button>
+               </router-link>
+           </div>
+          </div>
+          
+        </li>
+      
+      </ul>
+  </div>
 </div>
 </template>
 
@@ -25,7 +38,7 @@ var ERR_OK = 0
 export default {
   data() {
     return{
-     orderShow: false,
+     orderShow:false,
      page:0,
      pageSize:15,
     }
@@ -41,8 +54,9 @@ export default {
  methods: {
   //  显示提交订单页面
    createOrder(param){
-    //  console.log(param)
+     console.log(param)
      this.$router.replace({ path: '/order'})
+    this.orderShow = true;
    },
    //
    //
@@ -57,38 +71,35 @@ export default {
 </script>
 
 <style>
-#content-home-detail-service{
-    padding: 10px;
+.services{
     position: relative;
-    margin:0 auto;
-    text-align: center;
-    width: 90%;
-    height: 100px;
-    border-bottom: 1px solid rgba(1,17,27,0.1)
-}
-.services-header{
-  position: relative;
-  display: flex;
-  height: 40px;
-}
-.services-header>*{
-  margin-right: 5px;
-}
-.services-header>p{
-  margin-top: 6px;
-  font-size: 10px;
-}
-.services-bottom{
-  position: relative;
-  height: 60px;
-  display:flex;
-  flex-direction: column;
-  float: left;
-
-}
-.services-bottom>p{
-    text-align: left;
+    background: #fff;
+    padding: 2% 4% 4% 4%;
+    border-radius: 5px;
     font-size: 12px;
-    margin-top: 10px;
- }
+    width:93.5%;
+    border-bottom: 1px solid rgba(1,17,27,0.2);
+}
+.services-title{
+  font-size:15px;
+  display: flex;
+  flex-direction: row;
+}
+.services-title-name>p{
+  line-height: 15px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+.services-content{
+  margin-top: 10px;
+  padding: 5px;
+  /* border: 1px solid rgba(1,17,27,0.2); */
+  border-radius: 5px;
+}
+.services-content>p{
+line-height: 15px;
+}
+.services-button{
+  margin-left: 75%;
+}
 </style>

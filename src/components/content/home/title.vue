@@ -3,19 +3,16 @@
    <div class="title-tab">
      <div class="title-tab-item">
        <router-link to="/title" exact>
-       <!-- <i class="iconfont icon-caigou"></i> -->
        服务</router-link>
     </div>
      <div class="title-tab-item">
        <router-link to="/title/sell">
-       <!-- <i class="iconfont icon-jijianfasong"></i> -->
        出售</router-link>
     </div>
      <div class="title-tab-item">
        <router-link to="/title/help">互助</router-link>
     </div>
    </div>
-   <!-- <service></service> -->
    <router-view></router-view>
   </div>
 </template>
@@ -35,6 +32,7 @@ export default {
     position: relative;
     width: 100%;
     height: 40px;
+  
 }
 .title-tab{
   display: flex;

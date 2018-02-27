@@ -1,7 +1,7 @@
 <template>
   <div id="content-home-sell">
     <div>
-    <sells></sells>
+    <!-- <sells></sells> -->
     </div>
     <everybottom></everybottom>
   </div>

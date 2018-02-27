@@ -1,6 +1,9 @@
 <template>
   <div id="evereybottom">
-    {{message}}
+    <div class="everybottom-content">
+ {{message}}
+    </div>
+   
   </div>
 </template>
 
@@ -14,12 +17,13 @@ export default {
 #evereybottom{
     padding: 10px;
     position: relative;
-    /* margin-top: 5px; */
     margin:0 auto;
     text-align: center;
     width: 96%;
     height: 100px;
-    /* background: #eee; */
-    border-bottom: 1px solid rgba(1,17,27,0.1)
+    font-size: 8px;
+}
+.everybottom-content{
+  margin-top:20px;
 }
 </style>

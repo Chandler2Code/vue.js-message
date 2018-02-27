@@ -8,7 +8,7 @@
       <img src="./img/me.png"  height="20" width="20" alt="">
       <p>我的地址</p>
     </div>
-    <div class="adress">
+    <div class="adress" v-on:click="orderManage">
       <img src="./img/email.png"  height="20" width="20" alt="">
       <p>订单管理</p>
     </div>
@@ -28,6 +28,9 @@ export default {
 methods:{
   messageManage(){
    this.$router.replace({ path: '/messageManage'})
+  },
+  orderManage(){
+     this.$router.replace({ path: '/orderManage'})
   }
 }
 }

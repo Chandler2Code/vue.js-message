@@ -42,7 +42,7 @@ export default {
                 if(response.code  === ERR_OK){
                 this.services = response.data;
                 }
-                console.log("services=",this.services);
+              
             });
         },
   // ****
@@ -53,8 +53,12 @@ export default {
 <style>
 #content-home-service {
   position: absolute;
-  top: 40px;
+  top: 41px;
   bottom: 46px;
   width: 98.5%;
+}
+.aaa{
+  background: red;
+  z-index: 200;
 }
 </style>

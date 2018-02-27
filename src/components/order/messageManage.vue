@@ -15,10 +15,11 @@
                <img src="./images/time.png" alt=""> <p>{{item.createTime | formatDate}} </p>
                 <p v-if="item.messageStatus == '1'">~{{item.updateTime | formatDate}}</p>
             </div>
-            <p>{{item.content}}</p>
-            <p>{{item.remark}}</p>
+                <p>{{item.content}}</p>
+                <p>{{item.remark}}</p>
+           
             <div v-if="item.messageStatus == '0'" class="messageMana-title-button">
-               <el-button type="danger" size="mini" icon="el-icon-remove-outline" v-on:click="messageCancel(item.messageId)">结束发布</el-button>
+               <el-button type="danger" size="mini" icon="el-icon-remove-outline" round v-on:click="messageCancel(item.messageId)">结束发布</el-button>
            </div>
            </div>
       </li>
@@ -96,7 +97,6 @@ export default {
 .messageMana-content{
     background: #fff;
     padding: 2% 4% 4% 4%;
-    margin: 2%;
     border-radius: 5px;
     font-size: 12px;
     border-bottom: 1px solid rgba(1,17,27,0.2)
@@ -107,7 +107,6 @@ export default {
     padding-left: 5px;
     height: 40px;
     line-height: 40px;
-    /* margin-bottom: 5%; */
     font-size: 16px;
     border-bottom: 1px solid rgba(1,17,27,0.1);
 }
@@ -117,10 +116,9 @@ export default {
 .messageMana-title{
     font-size: 20px;
     padding-bottom: 8px;
-     /* border-bottom: 1px solid rgba(1,17,27,0.4) */
 }
 .messageMana-title-button{
-    margin-left:75%;
+    margin-left:72%;
 }
 .messageMava-createTime{
     display: flex;
@@ -129,5 +127,8 @@ export default {
 img{
     margin-top: -2px;
     margin-right: 2px;
+}
+p{
+    line-height: 10px;
 }
 </style>
