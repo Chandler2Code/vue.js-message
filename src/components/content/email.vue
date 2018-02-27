@@ -140,7 +140,8 @@ export default {
 }
 .email-title{
   position: relative;
-  margin-top: 5%;
+  margin-top: 10%;
+  margin-bottom: 5%;
   font-size: 20px;
   text-align: center;
 }

@@ -29,7 +29,7 @@ export default {
   created()
        {
         this.getLocadStorage();
-        this.$router.replace({ path: '/title'})
+        // this.$router.replace({ path: '/title'})
         // console.log(this.openid);
       },
    methods:{

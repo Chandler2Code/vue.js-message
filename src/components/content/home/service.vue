@@ -42,7 +42,7 @@ export default {
                 if(response.code  === ERR_OK){
                 this.services = response.data;
                 }
-                // console.log("services=",this.services);
+                console.log("services=",this.services);
             });
         },
   // ****

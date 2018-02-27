@@ -11,7 +11,7 @@
        <router-link to="/email">
          <i class="iconfont icon-email"></i>
        <p>发布</p>
-       </router-link>
+       </router-link> 
     </div>
      <div class="footer-tab-item">
        <router-link to="/me">

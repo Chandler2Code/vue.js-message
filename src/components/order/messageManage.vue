@@ -12,18 +12,18 @@
                 <span>{{item.title}}</span>
             </div>
             <div class="messageMava-createTime">
-                <img src="./images/time.png" alt=""> <p>发布于：{{item.createTime | formatDate}}</p>
+               <img src="./images/time.png" alt=""> <p>{{item.createTime | formatDate}} </p>
+                <p v-if="item.messageStatus == '1'">~{{item.updateTime | formatDate}}</p>
             </div>
             <p>{{item.content}}</p>
             <p>{{item.remark}}</p>
-            <div class="messageMana-title-button">
+            <div v-if="item.messageStatus == '0'" class="messageMana-title-button">
                <el-button type="danger" size="mini" icon="el-icon-remove-outline" v-on:click="messageCancel(item.messageId)">结束发布</el-button>
            </div>
            </div>
-           
       </li>
       </ul>
-      
+      <!-- <div class="messageMana-content"></div> -->
   </div>
 </template>
 <script>
@@ -33,9 +33,12 @@ export default {
   
   data(){
       return{
-      messages:[],
-      messageId:'',
-      openid:window.localStorage.getItem("openid"),
+          params:{
+              openId:window.localStorage.getItem("openid"),
+              messageId:''
+          },
+          cancelMessage:{},
+          messages:[],
      }
   },
   created(){
@@ -47,15 +50,12 @@ export default {
       },
       messageCancel(param){
           console.log(param);
-          this.messageId = param;
+          this.params.messageId = param;
           this.postMessageCancel();
       },
   getMessageList(){
-      var param = {
-          openid:this.openid
-      }
       this.$http.get('http://127.0.0.1:8081/serve/message/list'+
-            '?openid='+param.openid).then(
+            '?openid='+this.params.openId).then(
               response => {
                 response = response.body;
                 if(response.code  === ERR_OK){
@@ -65,15 +65,14 @@ export default {
             });
      },
     postMessageCancel(){
-        var param = {
-          openId:this.openid,
-          messagId:this.messageId
-      }
-      this.$http.post("http://localhost:8081/serve/message/cancel"+"?openId="+param.openId+"&?messageId="+param.messagId,{emulateJSON: true})
+      this.$http.post("http://localhost:8081/serve/message/cancel2",this.params,{emulateJSON: true})
             .then(
               (response)=>{
-              console.log("调用成功！")
-              },
+                response = response.body;
+                if(response.code  === ERR_OK){
+                    this.getMessageList();
+                }
+              }, 
         );
       },
   },
@@ -92,6 +91,7 @@ export default {
     width: 100%;
     background: #fff;
     z-index: 20;
+    margin-bottom: 5%;
 }
 .messageMana-content{
     background: #fff;
@@ -103,13 +103,13 @@ export default {
 }
 .back{
     display: block;
-    width: 98%;
+    width: 100%;
     padding-left: 5px;
     height: 40px;
     line-height: 40px;
-    margin-bottom: 10px;
+    /* margin-bottom: 5%; */
     font-size: 16px;
-    border-bottom: 1px solid rgba(1,17,27,0.1)
+    border-bottom: 1px solid rgba(1,17,27,0.1);
 }
 .messageMana-content>*{
     margin-top: 8px;
