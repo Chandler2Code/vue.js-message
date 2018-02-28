@@ -2,12 +2,15 @@
   <div id="content-me">
     <div class="me-header">
         <img src="./home-detial/3.png" height="70" width="70" alt="">
-        <p>小仙女</p>
+        <p>{{userInfo.wechatName}}</p>
     </div>
-    <div class="adress">
-      <img src="./img/me.png"  height="20" width="20" alt="">
-      <p>我的地址</p>
-    </div>
+    <router-link :to="{name:'addressManage',params:{address:userInfo.address,phone:userInfo.phone,
+    name:userInfo.wechatName}}">
+      <div class="adress">
+        <img src="./img/me.png"  height="20" width="20" alt="">
+        <p>地址管理</p>
+      </div>
+    </router-link>
     <div class="adress" v-on:click="orderManage">
       <img src="./img/email.png"  height="20" width="20" alt="">
       <p>订单管理</p>
@@ -24,14 +27,43 @@
 </template>
 
 <script>
+var ERR_OK = 0
 export default {
+  data(){
+      return{
+          params:{
+              openId:window.localStorage.getItem("openid"),
+             
+          },
+          cancelMessage:{},
+          userInfo:[],
+     }
+  },
+  created(){
+    this.getUserInfo();
+  },
 methods:{
   messageManage(){
    this.$router.replace({ path: '/messageManage'})
   },
   orderManage(){
      this.$router.replace({ path: '/orderManage'})
-  }
+  },
+   addressManage(){
+    this.$router.replace({ path: '/addressManage'})
+    console.log("information!")
+  },
+  getUserInfo(){
+      this.$http.get('http://127.0.0.1:8081/serve/user/information'+
+            '?openid='+this.params.openId).then(
+              response => {
+                response = response.body;
+                if(response.code  === ERR_OK){
+                this.userInfo = response.data;
+                }
+                // console.log("userInfo=",this.userInfo);
+            });
+     },
 }
 }
 </script>
@@ -67,5 +99,9 @@ methods:{
 }
 .adress>img{
   margin: 3px 10px 0 5px;
+}
+.adress>p{
+height: 30px;
+line-height: 30px;
 }
 </style>

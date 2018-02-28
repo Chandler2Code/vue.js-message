@@ -10,6 +10,8 @@ import sell from  '@/components/content/home/sell'
 import order from '@/components/order/order'
 import orderManage from '@/components/order/orderManage'
 import messageManage from '@/components/order/messageManage'
+import addressManage from '@/components/order/addressManage'
+import updateUserInfo from '@/components/order/updateUserInfo'
 Vue.use(Router)
 
 export default new Router({
@@ -63,6 +65,11 @@ export default new Router({
     {
       path:'/messageManage',
       component:messageManage,
+    },
+    {
+      path:'/addressManage',
+      name:'addressManage',
+      component:addressManage,
     },
   ]
   

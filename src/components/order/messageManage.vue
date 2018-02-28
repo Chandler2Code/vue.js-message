@@ -7,8 +7,8 @@
       <li v-for="item in messages">
           <div class="messageMana-content">
                 <div class="messageMana-title">
-                <span v-if="item.messageStatus == '0'"><img src="./images/run.png" alt=""></span>
-                <span v-else><img src="./images/stop.png" alt=""></span>
+                <span v-if="item.messageStatus == '0'"><img src="./images/run.png" alt="">(发布中)</span>
+                <span v-else><img src="./images/stop.png" alt="">(已结束发布)</span>
                 <span>{{item.title}}</span>
             </div>
             <div class="messageMava-createTime">
@@ -50,7 +50,7 @@ export default {
             this.$router.replace({ path: '/me'})
       },
       messageCancel(param){
-          console.log(param);
+        //   console.log(param);
           this.params.messageId = param;
           this.postMessageCancel();
       },

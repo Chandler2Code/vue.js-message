@@ -3,6 +3,7 @@
       <div class="back" >
          <i class="el-icon-arrow-left" v-on:click="backToHome">返回</i>
       </div>
+      <div v-show="false">
       <div class="order-title">
         <p>标题：{{$route.params.title}}</p>
         <p>内容：{{$route.params.content}}</p>
@@ -27,6 +28,7 @@
       </div>
    
 </el-form>
+      </div>
       </div>
   </div>
 </template>
@@ -59,7 +61,8 @@ methods:{
   submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) { 
-              this.postMessage(formName);
+            console.log("订单数据=",this.ruleForm);
+              // this.postMessage(formName);
             // alert('submit!');
           } else {
             console.log('error submit!!');
@@ -70,16 +73,6 @@ methods:{
     backToHome(){
         this.$router.replace({ path: '/title'})
     },
-    // submitForm(formName) {
-    //     this.$refs[formName].validate((valid) => {
-    //       if (valid) {
-    //         alert('submit!');
-    //       } else {
-    //         console.log('error submit!!');
-    //         return false;
-    //       }
-    //     });
-    //   },
       resetForm(formName) {
         this.$refs[formName].resetFields();
       },

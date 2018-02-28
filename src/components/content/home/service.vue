@@ -3,7 +3,7 @@
     <div class="content-home-services">
          <services :services="services"></services>
      <div v-if="services.length === 0"><everybottom message='亲，暂时还没有数据哟~'></everybottom></div>
-     <div v-if="services.length >= 5"><everybottom message='亲，没有更多了哟~'></everybottom></div>
+     <div v-if="services.length >= 4"><everybottom message='亲，没有更多了哟~'></everybottom></div>
     </div>
   </div>
 </template>
