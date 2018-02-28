@@ -16,7 +16,7 @@
                 <el-collapse-item title="显示订单详情..." name="1">
                     <div>内容:{{item.content}}</div>
                     <div>备注:{{item.remark}}</div>
-                    <div>地址：成都中医药大学温江校区11公寓323</div>
+                    <div>地址：{{item.address}}</div>
                 </el-collapse-item>
                 </el-collapse>
              </div>
@@ -75,7 +75,6 @@ export default {
 .orderMana{
    position: absolute;
     height: 100%;
-    width: 100%;
     background: #fff;
     z-index: 20;
     width: 98.5%;

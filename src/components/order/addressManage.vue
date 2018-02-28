@@ -80,6 +80,7 @@ export default {
         this.$refs[formName].validate((valid) => {
           if (valid) { 
               this.postUserInfoUpdate(formName);
+              this.$router.replace({ path: '/me'})
             // alert('submit!');
           } else {
             console.log('error submit!!');
