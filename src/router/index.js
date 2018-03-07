@@ -17,10 +17,10 @@ Vue.use(Router)
 export default new Router({
   // linkActiveClass: 'active', 
   routes: [
-    // {
-    //   path:'/',
-    //   component:footer
-    // },
+    {
+      path:'/',
+      component:footer
+    },
 
     {
       path:'/title',
